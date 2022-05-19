@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fb</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>  
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>  
+  <%#= Time.zone.now.strftime("%H:%M:%S") %>
+  </head>
+
+  <body>
+    <%= render partial: "devise/shared/navbar"%>
+    <div class="col-md-12">
+      <div class="container-fluid">
+
+    <% flash.each do |type, msg| %>
+        <div class="alert alert-notice">
+    <%= msg %>
+        </div>
+    <% end %>
+
+          <%= yield %>
+      </div>
+    </div>
+    <%= render partial: "devise/shared/footer"%>
+  </body>
+</html>

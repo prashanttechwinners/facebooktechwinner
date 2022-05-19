@@ -1,0 +1,10 @@
+<%= form_for @friend do |f| %>
+  </br>
+  <div class="form-friend">
+
+<%= f.hidden_field :friend_id,:user_id, value: current_user.id %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= f.submit id:'Add friend', class: 'btn btn-primary btn-lg float-end' %>
+
+<% end %>
+

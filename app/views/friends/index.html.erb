@@ -1,0 +1,53 @@
+<%#= render partial: 'friendships/index' %>
+
+<div class= 'card-body1'>
+  <% @users.each do |user| %>
+<ul>
+  <%= user.first_name %>
+  <%= user.email %>
+</ul>
+<div class="btn-group"><br/>
+
+  <%= button_to "Add Friend", add_friend_friend_path(id:user.id), method: :add_friend, class: "btn btn-sm btn-outline-primary" %>
+  <%= button_to "Remove", friend_path(user.id), method: :delete, class: "btn btn-sm btn-outline-primary" %>
+  </ul>
+</div>
+  </ul>
+  <% end %>
+</div> 
+
+<div class= 'card-body1'>
+  <h2>Pending Request</h2>
+  <% @friends.each do |friend| %>
+<ul>
+  <%= friend.user.first_name %>
+  <%= friend.user.email %>
+</ul>
+<div class="btn-group"><br/>
+
+  <%= button_to "Confirm", friends_path , method: :post, class: "btn btn-sm btn-outline-primary" %>
+  <%= button_to "Remove", friend_path(friend.id), method: :delete, class: "btn btn-sm btn-outline-primary" %>
+  </ul>
+</div>
+  </ul>
+  <% end %>
+
+</div> 
+<h2>Accepted Request</h2>
+<div class= 'card-body1'>
+  <% @ac_friends.each do |friend| %>
+<ul>
+  <%= friend.user.first_name %>
+  <%= friend.user.email %>
+</ul>
+<div class="btn-group"><br/>
+
+  <%#= button_to "Add Friend", add_friend_friend_path(id:user.id), method: :add_friend, class: "btn btn-sm btn-outline-primary" %>
+  <%#= button_to "Remove", friend_path(user.id), method: :delete, class: "btn btn-sm btn-outline-primary" %>
+  </ul>
+</div>
+  </ul>
+  <% end %>
+</div> 
+
+

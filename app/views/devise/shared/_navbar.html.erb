@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">facebook India</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+
+          <% if current_user %>
+
+          <a class="nav-link active" href="<%= profile_index_path%>">
+             <span class="icon"><i class="fas fa-user"></i></span>
+             <span class="item">Profile</span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= friends_path %>"><b>
+             <span class="icon"><i class="fas fa-user-friends"></i></span>
+             <span class="item">Friends</span>
+          </a>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= posts_path %>"><b>
+             <span class="icon"><i class="fas fa-user-friends"></i></span>
+             <span class="item">Posts</span>
+          </a>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%#= group_path %>"><b>
+             <span class="icon"><i class="fas fa-user-friends"></i></span>
+             <span class="item">Groups</span>
+          </a>
+        </li>
+      
+      </ul>
+      
+    </div>
+  <%= button_to "log out", destroy_user_session_path, method: :delete, class:"btn btn-secondary"%></a></li>
+  <% end %>
+</nav>

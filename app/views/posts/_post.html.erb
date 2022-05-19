@@ -1,0 +1,41 @@
+<div class="card shadow-sm">
+<svg class="bd-placeholder-img card-img-top" width="100%" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+  <%= image_tag url_for(post.photo) if post.photo.attached? %>
+
+<div class="card-body">
+<p class="card-text"><%= post.description %></p>
+
+<div class="d-flex justify-content-between align-items-center">
+<div class="btn-group"><br/>
+
+  <%= link_to "Edit", edit_post_path(post), :remote => true, class: "btn btn-sm btn-outline-primary" %>
+
+  <%= button_to "Delete", post_path(post), method: :delete, class: "btn btn-sm btn-outline-primary" %>
+
+</div>
+
+<small class="text-muted">5 mins</small>
+<%#= Time.now - 0.days %>
+<%#= (Time.parse(DateTime.now.to_s) - Time.parse(current_user.created_at.to_s)) %>
+
+<%#= File.ctime __FILE__ %>
+
+<%= created = post.created_at.localtime %>
+<%#= updated = post.updated_at %>
+<br />
+
+<%= diff_min = (Time.now.utc.localtime - created.localtime)/1.minutes %>
+<%#= minutes = updated - created %>
+<%#= format_duration (diff_min) %> ago
+
+
+ </div>
+</div>
+  <%= render "comments/form", post:post %>
+
+  <% post.comments.each do |comment| %>
+<ul>
+  <%= comment.description %>
+  </ul>
+  <% end %>
+</div>
