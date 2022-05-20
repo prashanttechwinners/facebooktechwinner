@@ -29,6 +29,7 @@ gem "jbuilder"
 
 gem 'devise'
 
+gem "pg"
 
 gem "bootstrap"
 gem "jquery-rails"
