@@ -111,6 +111,9 @@ GEM
       warden (~> 1.2.3)
     digest (3.1.0)
     dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
     faraday (2.3.0)
@@ -313,6 +316,7 @@ DEPENDENCIES
   debug
   devise
   dotenv
+  dotenv-rails
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

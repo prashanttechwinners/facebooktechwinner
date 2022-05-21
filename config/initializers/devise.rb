@@ -273,11 +273,6 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  [:facebook].each do |provider_name|
-    api_key = "5714605138556463"
-    api_secret = "6e15169dbf06ff955ba855fd1580474a"
-    config.omniauth provider_name, api_key, api_secret
-  end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -313,4 +308,13 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+    [:facebook].each do |provider_name|
+    if provider_name == :developer
+      config.omniauth :developer
+    else
+      api_key = ENV["#{provider_name.upcase}_API_KEY"]
+      api_secret = ENV["#{provider_name.upcase}_API_SECRET"]
+      config.omniauth provider_name, api_key, api_secret
+    end
+  end
 end
